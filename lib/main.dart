@@ -50,10 +50,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter API and ListView Example',
+      title: 'Flutter API and GridView Example',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter ListView'),
+          title: Text('Flutter GridView'),
         ),
         body: Center(
           child: FutureBuilder <List<Data>>(
@@ -62,8 +62,13 @@ class _MyAppState extends State<MyApp> {
               if (snapshot.hasData) {
                 List<Data> data = snapshot.data ?? <Data>[];
                 return
-                  ListView.builder(
+                  GridView.builder(
                       itemCount: data.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
+                      ),
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
                           height: 75,
