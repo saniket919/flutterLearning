@@ -78,8 +78,8 @@ class _MyAppState extends State<MyApp> {
                       mainAxisSpacing: 5.0,
                     ),
                     itemBuilder: (BuildContext context, int index) {
-                      //if(data[index].completed) {
-                      if(true){
+                      if((data[index].completed)) {
+                      //if(true){
                         return Container(
                           height: 75,
                           color: Colors.green,
