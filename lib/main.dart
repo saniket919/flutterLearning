@@ -38,6 +38,7 @@ class Data {
 
 void main() => runApp(MyApp());
 
+
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
@@ -46,6 +47,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Color color = Colors.yellow;
   late Future<List<Data>> futureData;
 
   @override
@@ -55,6 +57,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter API and GridView Example',
@@ -62,6 +65,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Flutter GridView'),
         ),
+
         body: Center(
           child:
 
@@ -74,17 +78,26 @@ class _MyAppState extends State<MyApp> {
                     itemCount: data.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 5.0,
-                      mainAxisSpacing: 5.0,
+                      crossAxisSpacing: 15.0,
+                      mainAxisSpacing: 15.0,
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       if((data[index].completed)) {
                       //if(true){
                         return Container(
                           height: 75,
-                          color: Colors.green,
+                            color: color,
                           child: Center(
-                            child: Text((data[index].title).toString()),
+                              child:RaisedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    color = Colors.green;
+                                  });
+                                },
+                                color: color,
+                                child: Text((data[index].title).toString()),
+                              )
+
                           ),
 
 
@@ -95,7 +108,13 @@ class _MyAppState extends State<MyApp> {
                           height: 75,
                           color: Colors.pink,
                           child: Center(
-                            child: Text(data[index].title),
+                            child:RaisedButton(
+                              onPressed: () { setState(() {
+                                color = Colors.pink;
+                              });},
+                              color: color,
+                              child: Text((data[index].title).toString()),
+                            )
                           ),
 
 
@@ -109,9 +128,11 @@ class _MyAppState extends State<MyApp> {
               // By default show a loading spinner.
               return CircularProgressIndicator();
             },
+
           ),
         ),
       ),
+
     );
   }
 }
