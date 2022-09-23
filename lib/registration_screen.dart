@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -72,7 +73,7 @@ class InitState extends State<RegistrationScreen> {
                     cursorColor:Color(0xffF5591F),
                     decoration:InputDecoration(
                       icon:Icon(
-                        Icons.person,
+                        Icons.electric_bike_rounded,
                         color:Color(0xffF5591F),
                       ),
                       hintText:"Enter Full Name",
@@ -98,7 +99,7 @@ class InitState extends State<RegistrationScreen> {
                     cursorColor:Color(0xffF5591F),
                     decoration:InputDecoration(
                       icon:Icon(
-                        Icons.email,
+                        Icons.email_outlined,
                         color:Color(0xffF5591F),
                       ),
                       hintText:"Enter Email",
@@ -124,7 +125,7 @@ class InitState extends State<RegistrationScreen> {
                     cursorColor:Color(0xffF5591F),
                     decoration:InputDecoration(
                       icon:Icon(
-                        Icons.phone,
+                        Icons.phone_android_outlined,
                         color:Color(0xffF5591F),
                       ),
                       hintText:"Phone Number",
@@ -151,7 +152,8 @@ class InitState extends State<RegistrationScreen> {
                     cursorColor:Color(0xffF5591F),
                     decoration:InputDecoration(
                       icon:Icon(
-                        Icons.vpn_key,
+                        Icons.password_sharp,
+
                         color:Color(0xffF5591F),
                       ),
                       hintText:"Enter Password",
@@ -195,7 +197,7 @@ class InitState extends State<RegistrationScreen> {
                 child:Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:[
-                      const Text("Already Login? "),
+                      const Text("Already on croptr ? "),
                       GestureDetector(
                           onTap:()=>{
                             Navigator.pop(context)

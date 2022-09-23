@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'registration_screen.dart';
+import 'package:email_validator/email_validator.dart';
 class LoginScreen extends StatefulWidget {
      const LoginScreen({super.key});
 
@@ -12,6 +13,7 @@ class InitState extends State<LoginScreen>{
   Widget build(BuildContext context){
     return initWidget();
   }
+
 
   Widget initWidget(){
     return Scaffold(
@@ -72,7 +74,7 @@ class InitState extends State<LoginScreen>{
                   cursorColor:Color(0xffF5591F),
                   decoration:InputDecoration(
                     icon:Icon(
-                      Icons.email,
+                      Icons.email_outlined,
                       color:Color(0xffF5591F),
                     ),
                     hintText:"Enter Email",
@@ -99,7 +101,7 @@ class InitState extends State<LoginScreen>{
                       cursorColor:Color(0xffF5591F),
                       decoration:InputDecoration(
                         icon:Icon(
-                          Icons.vpn_key,
+                          Icons.password_sharp,
                           color:Color(0xffF5591F),
                         ),
                         hintText:"Enter Password",
@@ -153,7 +155,7 @@ class InitState extends State<LoginScreen>{
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:[
-                    const Text("don't Have Account? "),
+                    const Text("Join croptr now."),
                     GestureDetector(
                       onTap:()=>{
                         Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()

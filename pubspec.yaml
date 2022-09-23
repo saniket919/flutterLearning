@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  email_validator: ^2.0.1
+
 
 
 
