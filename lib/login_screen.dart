@@ -125,7 +125,7 @@ class InitState extends State<LoginScreen>{
 
                 },
                 child:Container(
-                  margin:const EdgeInsets.only(left:20,right:20,top:60),
+                  margin:const EdgeInsets.only(left:25,right:20,top:60),
                   alignment: Alignment.center,
                   padding: const EdgeInsets.only(left:20,right:20),
                   height: 54,
