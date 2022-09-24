@@ -150,6 +150,7 @@ class InitState extends State<LoginScreen>{
                     )
                 )
               ),
+
               Container(
                 margin:const EdgeInsets.only(top:10),
                 child:Row(

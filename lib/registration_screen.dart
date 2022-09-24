@@ -41,16 +41,35 @@ class InitState extends State<RegistrationScreen> {
                         width: 90,
                         child: Image.asset('images/app_logo.png'),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 20, top: 20),
-                        alignment: Alignment.bottomRight,
-                        child: const Text(
-                          "Register",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
+                      GestureDetector(
+                          onTap:()=>{
+
+                          },
+                          child:Container(
+                              margin:const EdgeInsets.only(left:20,right:20,top:60),
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.only(left:20,right:20),
+                              height: 54,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors:[(Color(0xffF5591F)),(Color(0xffF2861E))],
+                                  begin:Alignment.centerLeft,
+                                  end:Alignment.centerRight,
+                                ),
+                                borderRadius: BorderRadius.circular(50),
+                                boxShadow:const [BoxShadow(
+                                    offset:Offset(0,10),
+                                    blurRadius:50,
+                                    color:Color(0xffEEEEEE)
+                                )],
+                              ),
+                              child:const Text(
+                                  "Register",
+                                  style:TextStyle(
+                                      color:Colors.white
+                                  )
+                              )
+                          )
                       ),
                     ],
                   ),
