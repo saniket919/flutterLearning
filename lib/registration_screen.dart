@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+//import 'camera_page.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -43,7 +44,8 @@ class InitState extends State<RegistrationScreen> {
                       ),
                       GestureDetector(
                           onTap:()=>{
-
+                            Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()
+                            ))
                           },
                           child:Container(
                               margin:const EdgeInsets.only(left:20,right:20,top:60),
@@ -64,7 +66,7 @@ class InitState extends State<RegistrationScreen> {
                                 )],
                               ),
                               child:const Text(
-                                  "Register",
+                                  "Take photo",
                                   style:TextStyle(
                                       color:Colors.white
                                   )
@@ -183,7 +185,8 @@ class InitState extends State<RegistrationScreen> {
             ),
             GestureDetector(
                 onTap:()=>{
-
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()
+                  ))
                 },
                 child:Container(
                     margin:const EdgeInsets.only(left:20,right:20,top:60),
