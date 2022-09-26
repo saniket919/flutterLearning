@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:image_picker/image_picker.dart';
+
 //import 'camera_page.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -14,7 +16,75 @@ class InitState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return initWidget();
+
   }
+  void _showImageDialog(){
+    showDialog(
+        context:context,
+        builder:(context){
+          return AlertDialog(
+              title:const Text("Please choose an option"),
+              content:Column(
+                mainAxisSize:MainAxisSize.min,
+                children:[
+                  InkWell(
+                      onTap: (){
+                        _getFromCamera();
+                      },
+                      child:Row(
+                          children:const [
+                            Padding(
+                                padding:EdgeInsets.all(4.0),
+                                child:Icon(
+                                  Icons.camera,
+                                  color: Colors.orange,
+                                )
+                            ),
+                            Text(
+                              "Camera",
+                              style:TextStyle(color:Colors.orange),
+                            ),
+                          ]
+                      )
+                  ),
+                  InkWell(
+                      onTap: (){
+                        _getFromGallery();
+                      },
+                      child:Row(
+                          children:const [
+                            Padding(
+                                padding:EdgeInsets.all(4.0),
+                                child:Icon(
+                                  Icons.image,
+                                  color: Colors.orange,
+                                )
+                            ),
+                            Text(
+                              "Gallery",
+                              style:TextStyle(color:Colors.orange),
+                            ),
+                          ]
+                      )
+                  )
+                ],
+              )
+          ) ;
+        }
+    );
+  }
+
+  void _getFromCamera() async
+  {
+    XFile? pickedFile = await ImagePicker().pickImage(source:ImageSource.camera);
+    Navigator.pop(context);
+  }
+  void _getFromGallery() async
+  {
+    XFile? pickedFile = await ImagePicker().pickImage(source:ImageSource.gallery);
+    Navigator.pop(context);
+  }
+
 
   Widget initWidget() {
     return Scaffold(
