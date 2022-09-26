@@ -114,8 +114,7 @@ class InitState extends State<RegistrationScreen> {
                       ),
                       GestureDetector(
                           onTap:()=>{
-                            Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()
-                            ))
+                            _showImageDialog()
                           },
                           child:Container(
                               margin:const EdgeInsets.only(left:20,right:20,top:60),
