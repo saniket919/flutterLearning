@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:image_picker/image_picker.dart';
@@ -252,6 +253,21 @@ class InitState extends State<RegistrationScreen> {
                         )
                     )
                 )
+            ),
+            GestureDetector(
+                onTap:()=>{
+                 // _showImageDialog()
+                },
+                child:   Container(
+                  height: 200,
+                  child: CupertinoDatePicker(
+                    mode: CupertinoDatePickerMode.date,
+                    initialDateTime: DateTime(1969, 1, 1),
+                    onDateTimeChanged: (DateTime newDateTime) {
+                      // Do something
+                    },
+                  ),
+                ),
             ),
             GestureDetector(
                 onTap:()=>{
