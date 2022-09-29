@@ -241,7 +241,8 @@ class InitState extends State<RegistrationScreen> {
             GestureDetector(
                 onTap:()=>{
                  // _showImageDialog()
-                  selectDate()
+                  selectDate(),
+                  print(selectDate),
                 },
                 child:Container(
                     margin:const EdgeInsets.only(left:20,right:20,top:60),

@@ -24,7 +24,7 @@ class InitState extends State<SplashScreen>{
   }
 
   loginRoute(){
-    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>const RegistrationScreen()
+    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>const LoginScreen()
     ));
 }
 

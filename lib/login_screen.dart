@@ -13,7 +13,16 @@ class InitState extends State<LoginScreen>{
   Widget build(BuildContext context){
     return initWidget();
   }
+  //String a="Email invalid";
+  String a="Enter email";
+  bool isvalid=false;
 
+  void Validate(String email) {
+   isvalid = EmailValidator.validate(email);
+    //print(isvalid);
+  }
+  //TextEditingController inputcontroller = TextEditingController();
+  var txt = TextEditingController();
 
   Widget initWidget(){
     return Scaffold(
@@ -70,14 +79,21 @@ class InitState extends State<LoginScreen>{
                   )],
                 ),
                 alignment: Alignment.center,
-                child:const TextField(
+                child: TextField(
+                    controller: txt,
+
                   cursorColor:Color(0xffF5591F),
+
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 1,
                   decoration:InputDecoration(
                     icon:Icon(
                       Icons.email_outlined,
                       color:Color(0xffF5591F),
                     ),
-                    hintText:"Enter Email",
+
+                    hintText:a,
+
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                   )
@@ -117,13 +133,35 @@ class InitState extends State<LoginScreen>{
                   child:const Text("Forget Password?"),
                   onTap: ()=>{
 
+
+
                 },
                 ),
               ),
               GestureDetector(
-                onTap:()=>{
 
+                onTap:()=>{
+                  // Validate(emailInput.text),
+                  // if(EmailValidator.validate()){emailInput.text = "wrong email"}
+                  // else {emailInput.text = "correct email"}
+                showDialog(
+                context: context,
+                builder: (context) {
+                return AlertDialog(
+                // Retrieve the text the that user has entered by using the
+                // TextEditingController.
+                   // String.toString(EmailValidator.validate(txt.text))
+                //content: Text("wrong email"),
+                  content: Text(EmailValidator.validate(txt.text).toString()),
+                );
                 },
+
+
+
+
+
+
+                )},
                 child:Container(
                   margin:const EdgeInsets.only(left:25,right:20,top:60),
                   alignment: Alignment.center,
