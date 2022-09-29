@@ -159,8 +159,7 @@ class InitState extends State<LoginScreen>{
                     const Text("Join croptr now."),
                     GestureDetector(
                       onTap:()=>{
-                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()
-                        ))
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()))
                       },
                       child:const Text(
                           "Register Now",

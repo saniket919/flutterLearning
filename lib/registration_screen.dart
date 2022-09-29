@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:untitled123/login_screen.dart';
 
 //import 'camera_page.dart';
 
@@ -18,6 +19,19 @@ class InitState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return initWidget();
 
+  }
+  DateTime selectedDate = DateTime.now();
+  void selectDate() async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1915, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
   }
   void _showImageDialog(){
     showDialog(
@@ -135,7 +149,7 @@ class InitState extends State<RegistrationScreen> {
                     cursorColor:Color(0xffF5591F),
                     decoration:InputDecoration(
                       icon:Icon(
-                        Icons.electric_bike_rounded,
+                        Icons.person_add,
                         color:Color(0xffF5591F),
                       ),
                       hintText:"Enter Full Name",
@@ -226,13 +240,14 @@ class InitState extends State<RegistrationScreen> {
             ),
             GestureDetector(
                 onTap:()=>{
-                  _showImageDialog()
+                 // _showImageDialog()
+                  selectDate()
                 },
                 child:Container(
                     margin:const EdgeInsets.only(left:20,right:20,top:60),
                     alignment: Alignment.topLeft,
                     padding: const EdgeInsets.only(left:20,right:20),
-                    height: 50,
+                    height: 30,
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         colors:[(Color(0xffffffff)),(Color(0xffffffff))],
@@ -243,7 +258,39 @@ class InitState extends State<RegistrationScreen> {
                       boxShadow:const [BoxShadow(
                           offset:Offset(0,10),
                           blurRadius:50,
-                          color:Color(0xffEEEEEE)
+                          color:Color(0xffe88932)
+                      )],
+                    ),
+                    child:const Text(
+                        "Enter DOB",
+                        style:TextStyle(
+                            color:Colors.black
+                        )
+                    )
+                )
+            ),
+
+
+            GestureDetector(
+                onTap:()=>{
+                  _showImageDialog()
+                },
+                child:Container(
+                    margin:const EdgeInsets.only(left:20,right:20,top:60),
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.only(left:20,right:20),
+                    height: 30,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors:[(Color(0xffffffff)),(Color(0xffffffff))],
+                        begin:Alignment.centerLeft,
+                        end:Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      boxShadow:const [BoxShadow(
+                          offset:Offset(0,10),
+                          blurRadius:50,
+                          color:Color(0xffe88932)
                       )],
                     ),
                     child:const Text(
@@ -254,21 +301,7 @@ class InitState extends State<RegistrationScreen> {
                     )
                 )
             ),
-            GestureDetector(
-                onTap:()=>{
-                 // _showImageDialog()
-                },
-                child:   Container(
-                  height: 200,
-                  child: CupertinoDatePicker(
-                    mode: CupertinoDatePickerMode.date,
-                    initialDateTime: DateTime(1969, 1, 1),
-                    onDateTimeChanged: (DateTime newDateTime) {
-                      // Do something
-                    },
-                  ),
-                ),
-            ),
+
             GestureDetector(
                 onTap:()=>{
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>const RegistrationScreen()
@@ -308,7 +341,8 @@ class InitState extends State<RegistrationScreen> {
                       const Text("Already on croptr ? "),
                       GestureDetector(
                           onTap:()=>{
-                            Navigator.pop(context)
+                            Navigator.push(context,MaterialPageRoute(builder: (context)=>const LoginScreen()))
+                            //Navigator.pop(context)
                           },
                           child:const Text(
                             "Login Now",
